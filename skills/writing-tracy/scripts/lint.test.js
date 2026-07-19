@@ -1,8 +1,7 @@
 'use strict';
 const assert = require('node:assert');
-const { clichePatterns } = require('./lint-patterns');
-
-const patternsById = Object.fromEntries(clichePatterns.map(p => [p.id, p]));
+const { clichePatterns, dashPatterns } = require('./lint-patterns');
+const patternsById = Object.fromEntries([...clichePatterns, ...dashPatterns].map(p => [p.id, p]));
 
 const tests = [];
 function test(name, fn) { tests.push({ name, fn }); }
@@ -43,6 +42,24 @@ expectMatches('worth-naming', "That loss is real and it's worth naming.", 1);
 expectMatches('worth-naming', "It's not worth naming names here.", 0);
 expectMatches('not-nothing', "That's not nothing.", 1);
 expectMatches('not-nothing', 'There is nothing left to say.', 0);
+
+// ---- original pattern cases (not in the vendored source) ----
+expectMatches('not-just-but', 'not just clear, but actionable', 1);
+expectMatches('not-just-but', 'This is not just fast, but also cheap.', 1);
+expectMatches('not-just-but', 'I did not go to the store.', 0);
+expectMatches('not-just-but', 'Not just yet.', 0);
+expectMatches('real-x-is-y', 'The real problem is that nobody tested it.', 1);
+expectMatches('real-x-is-y', 'The real question here is whether it scales.', 1);
+expectMatches('real-x-is-y', 'The real estate market is booming.', 0);
+expectMatches('real-x-is-y', 'The real work starts tomorrow.', 0);
+expectMatches('em-dash', 'The result — good or bad — surprised everyone.', 2);
+expectMatches('em-dash', 'Well-known results here.', 0);
+expectMatches('en-dash', 'the result – surprisingly – held up', 2);
+expectMatches('en-dash', 'pages 10–12', 0);
+expectMatches('en-dash', '2020–2021', 0);
+expectMatches('hyphen-sep', 'fast - but fragile', 1);
+expectMatches('hyphen-sep', 'well-known', 0);
+expectMatches('hyphen-sep', 'follow-up', 0);
 
 let failures = 0;
 for (const t of tests) {

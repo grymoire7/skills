@@ -87,4 +87,34 @@ const clichePatterns = [
 ];
 // ==== vendored end ====
 
-module.exports = { clichePatterns, makeChainFinder, makeRegexFinder };
+// ==== original start ====
+// Tracy's own additions, not present in the vendored source above.
+
+clichePatterns.push(
+  {
+    id: 'not-just-but',
+    find: makeRegexFinder(/\bnot\s+(?:just|only|merely|simply)\s+[^.!?\n]{1,60}?\bbut\s+(?:also\s+|even\s+)?/gi)
+  },
+  {
+    id: 'real-x-is-y',
+    find: makeRegexFinder(/\bthe\s+real\b(?![\s-]+(?:estate|time|life|world|quick)\b)\s+[\w'-]+(?:\s+[\w'-]+){0,3}\s+(?:is|was|are|were)\b/gi)
+  }
+);
+
+const dashPatterns = [
+  {
+    id: 'em-dash',
+    find: makeRegexFinder(/—/g)
+  },
+  {
+    id: 'en-dash',
+    find: makeRegexFinder(/(?<!\d)–|–(?!\d)/g)
+  },
+  {
+    id: 'hyphen-sep',
+    find: makeRegexFinder(/\s-\s/g)
+  }
+];
+// ==== original end ====
+
+module.exports = { clichePatterns, dashPatterns, makeChainFinder, makeRegexFinder };
