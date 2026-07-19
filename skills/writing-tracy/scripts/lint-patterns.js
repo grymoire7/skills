@@ -42,15 +42,15 @@ const clichePatterns = [
   },
   {
     id: 'whole',
-    find: makeRegexFinder(/\b(?:that|this)(?:['']s|\s+(?:is|was))\s+the\s+whole\b(?:\s+\w+)?/gi)
+    find: makeRegexFinder(/\b(?:that|this)(?:['’]s|\s+(?:is|was))\s+the\s+whole\b(?:\s+\w+)?/gi)
   },
   {
     id: 'did-not-chain',
-    find: makeChainFinder(String.raw`(?:did\s+not|didn['']t)\s`, /^(?:did\s+not|didn['']t)\s/i, 'did not item')
+    find: makeChainFinder(String.raw`(?:did\s+not|didn['’]t)\s`, /^(?:did\s+not|didn['’]t)\s/i, 'did not item')
   },
   {
     id: 'dont-verb-it',
-    find: makeRegexFinder(/\b(?:do\s+not|don['']t)\s+(?:just\s+|simply\s+|merely\s+)?(\w+)(?:\s+(?:of|about|at|on|for|with|to))?\s+it\b[^.!?\n]*?[.!?;,:–—]['""']*\s*(?:just\s+|simply\s+|merely\s+)?\1(?:\s+(?:of|about|at|on|for|with|to))?\s+it\b/gi)
+    find: makeRegexFinder(/\b(?:do\s+not|don['’]t)\s+(?:just\s+|simply\s+|merely\s+)?(\w+)(?:\s+(?:of|about|at|on|for|with|to))?\s+it\b[^.!?\n]*?[.!?;,:–—]['"”’]*\s*(?:just\s+|simply\s+|merely\s+)?\1(?:\s+(?:of|about|at|on|for|with|to))?\s+it\b/gi)
   },
   {
     id: 'sit-with',
@@ -62,11 +62,11 @@ const clichePatterns = [
   },
   {
     id: 'is-the-entire',
-    find: makeRegexFinder(/(?:\b(?:is|was|are|were)|['']s)\s+the\s+entire\b(?:\s+\w+)?/gi)
+    find: makeRegexFinder(/(?:\b(?:is|was|are|were)|['’]s)\s+the\s+entire\b(?:\s+\w+)?/gi)
   },
   {
     id: 'the-entire-is',
-    find: makeRegexFinder(/\bthe\s+entire\s+[\w''-]+(?:\s+[\w''-]+){0,4}?\s+(?:is|was|are|were)\b/gi)
+    find: makeRegexFinder(/\bthe\s+entire\s+[\w'’-]+(?:\s+[\w'’-]+){0,4}?\s+(?:is|was|are|were)\b/gi)
   },
   {
     id: 'is-real',
@@ -78,11 +78,11 @@ const clichePatterns = [
   },
   {
     id: 'worth-naming',
-    find: makeRegexFinder(/(?:\b(?:is|are|was|were|feels?|felt|seems?|seemed)|['']s)\s+(?:\w+\s+){0,2}?worth\s+naming\b(?!\s+names\b)|\bworth\s+naming\s*:/gi)
+    find: makeRegexFinder(/(?:\b(?:is|are|was|were|feels?|felt|seems?|seemed)|['’]s)\s+(?:\w+\s+){0,2}?worth\s+naming\b(?!\s+names\b)|\bworth\s+naming\s*:/gi)
   },
   {
     id: 'not-nothing',
-    find: makeRegexFinder(/\b(?:that|this|it|which)(?:['']s|\s+(?:is|was))\s+not\s+nothing\b/gi)
+    find: makeRegexFinder(/\b(?:that|this|it|which)(?:['’]s|\s+(?:is|was))\s+not\s+nothing\b/gi)
   }
 ];
 // ==== vendored end ====
