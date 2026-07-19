@@ -61,6 +61,48 @@ expectMatches('hyphen-sep', 'fast - but fragile', 1);
 expectMatches('hyphen-sep', 'well-known', 0);
 expectMatches('hyphen-sep', 'follow-up', 0);
 
+// ---- CLI function cases ----
+const { lint, lineNumberAt, snippetAt } = require('./lint');
+
+test('lineNumberAt counts newlines before the offset', () => {
+  const text = 'a\nb\nc';
+  assert.strictEqual(lineNumberAt(text, 0), 1);
+  assert.strictEqual(lineNumberAt(text, 2), 2);
+  assert.strictEqual(lineNumberAt(text, 4), 3);
+});
+
+test('snippetAt collapses whitespace and marks truncation', () => {
+  const text = 'x'.repeat(50) + 'TARGET' + 'y'.repeat(50);
+  const start = 50;
+  const end = 56;
+  const snippet = snippetAt(text, start, end);
+  assert.ok(snippet.startsWith('...'), 'expected a leading ellipsis');
+  assert.ok(snippet.endsWith('...'), 'expected a trailing ellipsis');
+  assert.ok(snippet.includes('TARGET'), 'expected the match text to be present');
+});
+
+test('lint() catches a match spanning a line break and reports the start line', () => {
+  const text = "Intro paragraph.\n\nThe fix is\nreal, and it wasn't obvious to anyone on the team.";
+  const hits = lint(text);
+  const hit = hits.find(h => h.id === 'is-real');
+  assert.ok(hit, 'expected an is-real hit');
+  assert.strictEqual(hit.line, 3, 'match should be reported on the line where it starts');
+});
+
+test('lint() sorts hits by line number', () => {
+  const text = 'The real problem is X.\n\nNo fluff, no filler, no jargon.\n\nThat is not nothing.';
+  const hits = lint(text);
+  const lines = hits.map(h => h.line);
+  const sorted = [...lines].sort((a, b) => a - b);
+  assert.deepStrictEqual(lines, sorted, 'hits should already be sorted by line');
+  assert.strictEqual(hits.length, 3, 'expected all three clichés to be caught');
+});
+
+test('lint() returns nothing for clean text', () => {
+  const text = 'The dog ran across the yard and barked twice.';
+  assert.deepStrictEqual(lint(text), []);
+});
+
 let failures = 0;
 for (const t of tests) {
   try {
