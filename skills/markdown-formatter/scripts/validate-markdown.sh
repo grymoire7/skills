@@ -13,8 +13,15 @@ NC='\033[0m' # No Color
 # Check if file is provided
 if [ $# -eq 0 ]; then
     echo -e "${RED}Error: No file specified${NC}"
-    echo "Usage: $0 <markdown-file>"
+    echo "Usage: $0 [--] <markdown-file>"
     exit 1
+fi
+
+# SKILL.md documents `--` as an end-of-options marker so filenames can't be
+# mistaken for flags. Honor it here since this script otherwise takes $1
+# as the path verbatim, with no getopts to consume it.
+if [ "$1" = "--" ]; then
+    shift
 fi
 
 FILE="$1"

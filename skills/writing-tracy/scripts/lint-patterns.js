@@ -112,7 +112,12 @@ const dashPatterns = [
   },
   {
     id: 'hyphen-sep',
-    find: makeRegexFinder(/\s-\s/g)
+    // \s matches newlines, so without the lookbehind this also fires on
+    // markdown list markers ("...end of paragraph.\n\n- item") since the
+    // blank line before the "-" satisfies \s. Exclude any "-" that's a
+    // list marker: one where only horizontal whitespace precedes it since
+    // the start of its line.
+    find: makeRegexFinder(/\s(?<!^[ \t]*)-\s/gm)
   }
 ];
 // ==== original end ====

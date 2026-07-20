@@ -61,6 +61,9 @@ expectMatches('en-dash', '2020–2021', 0);
 expectMatches('hyphen-sep', 'fast - but fragile', 1);
 expectMatches('hyphen-sep', 'well-known', 0);
 expectMatches('hyphen-sep', 'follow-up', 0);
+expectMatches('hyphen-sep', 'End of paragraph.\n\n- List item one.\n- List item two.', 0);
+expectMatches('hyphen-sep', 'End of paragraph.\n\n  - Nested list item.', 0);
+expectMatches('hyphen-sep', 'fast - but fragile\n\n- Then a list item.', 1);
 
 // ---- CLI function cases ----
 const { lint, lineNumberAt, snippetAt } = require('./lint');
