@@ -42,6 +42,7 @@ expectMatches('worth-naming', "That loss is real and it's worth naming.", 1);
 expectMatches('worth-naming', "It's not worth naming names here.", 0);
 expectMatches('not-nothing', "That's not nothing.", 1);
 expectMatches('not-nothing', 'There is nothing left to say.', 0);
+expectMatches('not-nothing', 'That’s not nothing.', 1);
 
 // ---- original pattern cases (not in the vendored source) ----
 expectMatches('not-just-but', 'not just clear, but actionable', 1);

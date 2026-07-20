@@ -50,7 +50,7 @@ These read as generated rather than written. Rewrite around all of them:
 ## Quick reference: before finishing a piece
 
 1. Run `node ~/.claude/skills/writing-tracy/scripts/lint.js <file>` (or pipe the draft in via
-   stdin) and fix everything it flags — it mechanically checks every phrase and dash rule below.
+   stdin) and fix everything it flags — it mechanically checks every phrase and dash rule above.
 2. Do one more manual pass for anything the linter can't catch: tone, sentence-case headings, and
    Ruby-by-default code samples.
 
