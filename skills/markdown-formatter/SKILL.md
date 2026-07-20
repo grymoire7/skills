@@ -2,12 +2,18 @@
 name: markdown-formatter
 description: Formats markdown files according to best practices and common style guidelines. Use when cleaning up markdown documentation, ensuring consistent formatting, or standardizing README files.
 allowed-tools: Read, Edit, Grep, Glob, Bash(scripts/validate-markdown.sh:*)
-version: 2.1
+version: 2.2
 ---
 
 # Markdown Formatter
 
 This skill provides modular, categorized formatting guidance for markdown documents. Load resources by formatting area as needed.
+
+## Scope and precedence
+
+This skill governs markdown *structure*: header hierarchy, list/code syntax, link and table formatting, spacing. It does not govern prose voice, tone, or word choice.
+
+Where this skill's guidance could be read as a style choice — most notably heading capitalization — default to sentence case. If the document being formatted is human-facing prose (blog post, doc, README) that also falls under the `writing-tracy` skill, that skill's rules win wherever the two would otherwise disagree, including heading case, em/en dash usage, and banned phrases. This skill's own rules apply where writing-tracy is silent (list markers, code fence languages, table alignment, and the rest of the structural rules below).
 
 ## Security
 

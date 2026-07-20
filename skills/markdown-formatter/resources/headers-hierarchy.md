@@ -118,23 +118,24 @@ Another major topic...
 ## Capitalization and Formatting
 
 ### Style Options
-Choose one and be consistent:
 
-**Title Case**
-```markdown
-# Getting Started Guide
-## Installing Dependencies
-### Configuration Options
-```
-
-**Sentence case**
+**Default to Sentence case** unless the document already has an established, consistent convention of its own:
 ```markdown
 # Getting started guide
 ## Installing dependencies
 ### Configuration options
 ```
 
-**ALL CAPS** (rarely used, harder to read)
+For prose meant for a human reader (blog posts, docs, READMEs), this is a hard rule, not a preference — see `writing-tracy` for the full voice and style guide that governs that kind of content. Markdown-formatter only owns structure; when a document falls under writing-tracy's scope and the two would disagree, writing-tracy's rule wins.
+
+**Title Case** — only when a document already uses it consistently and there's no reason to change it:
+```markdown
+# Getting Started Guide
+## Installing Dependencies
+### Configuration Options
+```
+
+**ALL CAPS** (rarely used, harder to read, avoid introducing it)
 ```markdown
 # GETTING STARTED GUIDE
 ## INSTALLING DEPENDENCIES

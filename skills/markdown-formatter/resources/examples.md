@@ -17,13 +17,13 @@ more content
 
 ### After
 ```markdown
-# Header Without Hash
+# Header without hash
 
-## Level 2 Header
+## Level 2 header
 
 Content here.
 
-### Level 3 Header
+### Level 3 header
 
 More content.
 ```
@@ -169,7 +169,7 @@ Just run it:
 
 ### After
 ```markdown
-# My Project
+# My project
 
 This is a cool project.
 

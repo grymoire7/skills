@@ -32,7 +32,9 @@ More content.
 ```
 
 ### Capitalization
-- Use sentence case or title case consistently
+- Default to sentence case ("Getting started guide", not "Getting Started Guide")
+- Keep title case only if a document already uses it consistently — don't introduce it fresh
+- For human-facing prose (blog posts, docs, READMEs), sentence case is a hard rule from `writing-tracy`, not a style preference — see that skill for the full voice guide
 - Be consistent within a document
 
 ### Length
