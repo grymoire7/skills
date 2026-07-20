@@ -49,10 +49,10 @@ These read as generated rather than written. Rewrite around all of them:
 
 ## Quick reference: before finishing a piece
 
-1. Scan for em dashes or en dashes used as clause separators — rewrite them.
-2. Scan for any phrase from the list above — rewrite in plain language.
-3. Headings in sentence case.
-4. Code samples in Ruby unless context says otherwise.
+1. Run `node ~/.claude/skills/writing-tracy/scripts/lint.js <file>` (or pipe the draft in via
+   stdin) and fix everything it flags — it mechanically checks every phrase and dash rule below.
+2. Do one more manual pass for anything the linter can't catch: tone, sentence-case headings, and
+   Ruby-by-default code samples.
 
 ## Common mistakes
 
