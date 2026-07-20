@@ -6,6 +6,18 @@ living loose in a config directory.
 Each skill lives under `skills/<name>/` with its own `SKILL.md`, plus a `scripts/` subdirectory
 for any supporting tools the skill needs.
 
+## Credits
+
+| Skill | Purpose | Credits |
+|---|---|---|
+| `markdown-formatter` | Formats markdown files to a consistent style | Forked from [markpitt/claude-skills](https://github.com/markpitt/claude-skills/tree/main/skills/markdown-formatter), provided as-is |
+| `mise` | Guidance on the mise dev tool and environment orchestrator | Forked from [markpitt/claude-skills](https://github.com/markpitt/claude-skills/tree/main/skills/mise), provided as-is |
+| `writing-pitchfork-configs` | Writes and audits `pitchfork.toml` files for local dev processes | Original |
+| `writing-tracy` | Applies Tracy's voice and style rules to human-facing prose | Original, except the cliche/dash linter (`scripts/lint.js`), derived from Simon Willison's [llm-cliche-highlighter](https://github.com/simonw/tools/blob/main/llm-cliche-highlighter.html) |
+
+`markpitt/claude-skills` is provided as-is; its README notes individual skills may carry their own
+licenses. Treat these forks the same way: as-is, no license claimed beyond that.
+
 ## Stack
 
 Plain Node.js. Everything runs with the built-in `node` command, without a `package.json` or any
